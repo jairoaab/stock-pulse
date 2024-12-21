@@ -1,16 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="407ad558-6b68-41d6-8ece-81ea71bf46d5" name="Changes" comment="" />
+    <list default="true" id="407ad558-6b68-41d6-8ece-81ea71bf46d5" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/features/Dashboard.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/PriceAlertForm/Button.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/PriceAlertForm/Form.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/PriceAlertForm/FormErrorMessage.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/PriceAlertForm/FormLabel.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/PriceAlertForm/FormLabel.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/PriceAlertForm/FormSelect.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/PriceAlertForm/Input.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/PriceAlertForm/NumericInput.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/PriceAlertForm/PriceAlertForm.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/PriceAlertForm/SelectInput.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/PriceAlertForm/useSelectOptions.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/Stock/StockSlice.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/websocket/useWebsocket.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/store.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/common/hooks/useGet.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/common/hooks/useGet.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/counter/Counter.module.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/counter/Counter.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/counter/counterAPI.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/counter/counterSlice.test.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/counter/counterSlice.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/quotes/Quotes.module.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/quotes/Quotes.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/quotes/quotesApiSlice.ts" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2qSvEMNFp1x3Wm3UzO0zbd7uib2" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -20,7 +56,11 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/jairoabreu/Documents/projects/stock-pulse",
+    "last_opened_file_path": "/Users/jairoabreu/Documents/projects/stock-pulse/src/features/PriceAlertForm",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "prettierjs.PrettierConfiguration.Package": "/Users/jairoabreu/Documents/projects/stock-pulse/node_modules/prettier",
     "ts.external.directory.path": "/Users/jairoabreu/Documents/projects/stock-pulse/node_modules/typescript/lib",
@@ -29,11 +69,24 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/features/PriceAlertForm" />
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="start" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -43,11 +96,23 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1734668679464</updated>
-      <workItem from="1734668680794" duration="3307000" />
+      <workItem from="1734668680794" duration="5375000" />
+      <workItem from="1734744882968" duration="12059000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

@@ -1,0 +1,16 @@
+.container {
+    margin-bottom: 8px;
+
+    .label {
+        color: #3e4451;
+        font-feature-settings:
+            'liga' off,
+            'clig' off;
+        font-family: 'Museo Sans', serif;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 20px;
+        margin-bottom: 0.5rem;
+    }
+}

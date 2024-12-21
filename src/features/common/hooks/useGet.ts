@@ -13,7 +13,6 @@ interface UseGetResponse<T> {
 const useGet = <T>({ url, payload }: UseGetParams): [() => void, UseGetResponse<T>] => {
     const [data, setData] = useState<T | null>(null);
     const [isLoading, setIsLoading] = useState<boolean>(false);
-    const [lastPayload, setLastPayload] = useState<Record<string, any>>(payload);
 
     const buildQueryParams = (payload: Record<string, any>): string => {
         return Object.keys(payload)
@@ -34,7 +33,6 @@ const useGet = <T>({ url, payload }: UseGetParams): [() => void, UseGetResponse<
             if (!response.ok) console.error('Failed to fetch data');
             const result = await response.json();
             setData(result);
-            setLastPayload(payload);
         } catch (error) {
             console.error('Error fetching data:', error);
             setData(null);
@@ -44,9 +42,7 @@ const useGet = <T>({ url, payload }: UseGetParams): [() => void, UseGetResponse<
     };
 
     useEffect(() => {
-        if (JSON.stringify(payload) !== JSON.stringify(lastPayload)) {
-            fetchData();
-        }
+        fetchData();
     }, [payload]);
 
     const refetch = () => {
