@@ -36,7 +36,6 @@ const Select: React.FC<SelectProps> = ({
     optionsFields = { key: 'key', label: 'label' },
     onChange,
     extraFields,
-    editable = false,
     placeholder,
     multiSelect = false,
     required = false,
@@ -50,7 +49,7 @@ const Select: React.FC<SelectProps> = ({
         options,
         optionsFields,
         extraFields,
-    });
+    }) || [];
 
     const getRawOption = (option: any) => {
         return options?.find(
@@ -82,22 +81,14 @@ const Select: React.FC<SelectProps> = ({
                 input={input}
                 meta={meta}
                 options={serializedOptions}
-                optionsFields={optionsFields}
                 onChange={(value: OptionsFields) => {
-                    if (multiSelect) {
-                        input.onChange(value);
-                    } else {
-                        input.onChange(useRawOptionValues ? getRawOption(value) : value?.key || value);
-                    }
                     onChange?.(value);
                 }}
-                editable={editable}
                 placeholder={placeholder}
                 multiSelect={multiSelect}
                 required={required}
                 disabled={disabled}
                 className={className}
-                componentId={name}
                 loading={loading}
             />
         )}
