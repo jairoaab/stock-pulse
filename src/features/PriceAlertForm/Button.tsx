@@ -15,14 +15,14 @@ interface ButtonProps {
 }
 
 const Button: React.FC<ButtonProps> = ({
-   label,
-   className,
-   loading = false,
-   onClick,
-   type = 'button',
-   severity = 'primary',
-   disabled = false,
-   icon,
+    label,
+    className,
+    loading = false,
+    onClick,
+    type = 'button',
+    severity = 'primary',
+    disabled = false,
+    icon,
 }) => {
     const form = useForm();
 

@@ -4,12 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="407ad558-6b68-41d6-8ece-81ea71bf46d5" name="Changes" comment="Adding Fetching Stock data">
+    <list default="true" id="407ad558-6b68-41d6-8ece-81ea71bf46d5" name="Changes" comment="Fixing select component to have a search textbox">
+      <change afterPath="$PROJECT_DIR$/src/features/PriceAlertForm/FormErrorMessage.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/SideBar.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/SideBar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/StockSubscriptions/StockSubscriptions.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/StockSubscriptions/StockSubscriptions.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/websocket/WebSocketProvider.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/Dashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Dashboard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/PriceAlertForm/Button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/PriceAlertForm/Button.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/PriceAlertForm/Form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/PriceAlertForm/Form.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/PriceAlertForm/FormErrorMessage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/PriceAlertForm/FormErrorMessage.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/PriceAlertForm/FormSelect.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/PriceAlertForm/FormSelect.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/PriceAlertForm/NumericInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/PriceAlertForm/NumericInput.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/PriceAlertForm/PriceAlertForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/PriceAlertForm/PriceAlertForm.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/PriceAlertForm/SelectInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/PriceAlertForm/SelectInput.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/Stock/StockSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Stock/StockSlice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/websocket/useWebsocket.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +67,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/features/StockSubscriptions" />
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
@@ -74,7 +92,7 @@
       <option name="presentableId" value="Default" />
       <updated>1734668679464</updated>
       <workItem from="1734668680794" duration="5375000" />
-      <workItem from="1734744882968" duration="15958000" />
+      <workItem from="1734744882968" duration="29172000" />
     </task>
     <task id="LOCAL-00001" summary="Adding Fetching Stock data">
       <created>1734764169695</created>
@@ -83,7 +101,14 @@
       <option name="project" value="LOCAL" />
       <updated>1734764169695</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Fixing select component to have a search textbox">
+      <created>1734767884702</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1734767884702</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -102,6 +127,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Adding Fetching Stock data" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding Fetching Stock data" />
+    <MESSAGE value="Fixing select component to have a search textbox" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixing select component to have a search textbox" />
   </component>
 </project>

@@ -25,6 +25,7 @@ interface SelectInputProps {
     disabled?: boolean;
     className?: string;
     loading?: boolean;
+    getFilteredOptions?: (inputValue: string) => any;
 }
 
 const SelectInput = ({
@@ -38,6 +39,7 @@ const SelectInput = ({
     required = false,
     disabled = false,
     loading = false,
+    getFilteredOptions,
 }: SelectInputProps) => {
 
     const handleChange = (value: any) => {
@@ -45,7 +47,7 @@ const SelectInput = ({
         onChange(value);
     };
 
-    const getFilteredOptions = (inputValue: string) => {
+    const filterOptions = (inputValue: string) => {
         if (!inputValue) {
             return [];
         }
@@ -57,7 +59,7 @@ const SelectInput = ({
     const loadOptions = (inputValue: string) =>
         new Promise((resolve) => {
             setTimeout(() => {
-                resolve(getFilteredOptions(inputValue));
+                resolve(filterOptions(inputValue));
             }, 1000);
         });
 
@@ -73,8 +75,7 @@ const SelectInput = ({
                 id={name}
                 name={name}
                 onChange={(e: any) => handleChange(e)}
-                // @ts-ignore
-                loadOptions={loadOptions}
+                loadOptions={getFilteredOptions || loadOptions}
                 isMulti={multiSelect}
                 isClearable
                 placeholder={placeholder}

@@ -14,7 +14,7 @@ interface OptionsFields {
 interface SelectProps {
     name: string;
     label?: string;
-    options: any[] | null;
+    options?: any[] | null;
     optionsFields?: OptionsFields;
     extraFields?: string[];
     editable?: boolean;
@@ -27,6 +27,7 @@ interface SelectProps {
     containerClassName?: string;
     useRawOptionValues?: boolean;
     loading?: boolean;
+    getFilteredOptions?: (inputValue: string) => any;
 }
 
 const Select: React.FC<SelectProps> = ({
@@ -44,9 +45,10 @@ const Select: React.FC<SelectProps> = ({
     containerClassName,
     useRawOptionValues = false,
     loading = false,
+    getFilteredOptions,
 }) => {
     const serializedOptions = useSelectOptions({
-        options,
+        options: options || [],
         optionsFields,
         extraFields,
     }) || [];
@@ -90,6 +92,7 @@ const Select: React.FC<SelectProps> = ({
                 disabled={disabled}
                 className={className}
                 loading={loading}
+                getFilteredOptions={getFilteredOptions}
             />
         )}
       </Field>

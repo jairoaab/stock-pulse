@@ -12,6 +12,7 @@ type Mutators = Record<
 
 interface FormProps {
     children: ReactNode | ((props: { form: any }) => ReactNode);
+    className?: string;
     onSubmit: FinalFormProps['onSubmit'];
     initialValues?: Record<string, any>;
     validationFunction?: FinalFormProps['validate'];
@@ -20,6 +21,7 @@ interface FormProps {
 
 const Form: FC<FormProps> = ({
     children,
+    className,
     onSubmit,
     initialValues = {},
     validationFunction,
@@ -42,7 +44,7 @@ const Form: FC<FormProps> = ({
             mutators={{ ...defaultMutators, ...mutators }}
         >
             {({ handleSubmit, form }) => (
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} className={className}>
                     {typeof children === 'function' ? children({ form }) : children}
                 </form>
             )}

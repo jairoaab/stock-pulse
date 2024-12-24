@@ -50,13 +50,14 @@ const NumericInput: FC<NumericInputProps> = ({
             <Field
                 name={name}
                 render={({ input, meta }) => (
-                    <>
+                    <div style={{ display: 'flex',  flexDirection: 'column'}}>
                         <TextField
                             {...input}
                             ref={inputRef}
                             type="number"
                             id={name}
                             disabled={disabled}
+                            required={required}
                             className={`numeric-input ${className || ''} ${
                                 (!isFormFieldValid(meta) || (required && !input.value)) ? 'p-invalid' : ''
                             }`}
@@ -67,7 +68,7 @@ const NumericInput: FC<NumericInputProps> = ({
                             }}
                         />
                         <FormErrorMessage meta={{ ...meta, required: required && !input.value }} />
-                    </>
+                    </div>
                 )}
             />
     </span>

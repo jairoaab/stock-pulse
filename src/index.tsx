@@ -5,6 +5,7 @@ import App from "./App"
 import { store } from "./app/store"
 import "./index.css"
 import reportWebVitals from "./reportWebVitals"
+import { WebSocketProvider } from './features/websocket/WebSocketProvider';
 
 const container = document.getElementById("root")
 
@@ -12,11 +13,13 @@ if (container) {
   const root = createRoot(container)
 
   root.render(
-    <React.StrictMode>
-      <Provider store={store}>
-        <App />
-      </Provider>
-    </React.StrictMode>,
+    <Provider store={store}>
+      <WebSocketProvider>
+        <React.StrictMode>
+          <App />
+        </React.StrictMode>
+      </WebSocketProvider>,
+    </Provider>
   )
 } else {
   throw new Error(

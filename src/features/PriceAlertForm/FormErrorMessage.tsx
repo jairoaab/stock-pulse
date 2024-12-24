@@ -1,5 +1,7 @@
 import React, { FC } from 'react';
 
+import './FormErrorMessage.scss';
+
 interface FormErrorMessageProps {
     meta: {
         error?: string | string[];
@@ -9,10 +11,6 @@ interface FormErrorMessageProps {
 }
 
 const FormErrorMessage: FC<FormErrorMessageProps> = ({ meta }) => {
-    if (!meta.touched) {
-        return null;
-    }
-
     if (Array.isArray(meta.error)) {
         return (
             <>

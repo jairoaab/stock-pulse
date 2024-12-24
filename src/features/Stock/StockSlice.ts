@@ -1,31 +1,47 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+
+export interface StockSubscription {
+    symbol: string;
+    threshold: number;
+    price?: number;
+    name?: string;
+    change?: number;
+    lastUpdated?: Date;
+}
+
+export interface StockStateData {
+    subscriptions: StockSubscription[];
+    loading: boolean;
+    error: string;
+}
+
+const initialState: StockStateData = {
+    subscriptions: [],
+    loading: false,
+    error: '',
+};
 
 const stockSlice = createSlice({
     name: 'stock',
-    initialState: {
-        stockData: [],
-        loading: false,
-        error: '',
-    },
+    initialState,
     reducers: {
-        // @ts-ignore
-        addStockData: (state, action: { payload: never }) => {
-            state.stockData.push(action.payload);
+        addSubscription: (state, action: PayloadAction<StockSubscription>) => {
+            state.subscriptions.push(action.payload);
         },
-        updateStockData: (state, action) => {
+        updateStockData: (state, action: PayloadAction<{ id: string; data: Partial<StockSubscription> }>) => {
             const { id, data } = action.payload;
-            const index = state.stockData.findIndex((stock: any) => stock.id === id);
+            const index = state.subscriptions.findIndex((stock) => stock.symbol === id);
             if (index !== -1) {
-                // @ts-ignore
-                state.stockData[index] = { ...state.stockData[index], ...data };
+                state.subscriptions[index] = { ...state.subscriptions[index], ...data };
             }
         },
-        deleteStockData: (state, action) => {
-            state.stockData = state.stockData.filter((stock: any) => stock.id !== action.payload);
-        }
+        removeSubscription: (state, action: PayloadAction<string>) => {
+            state.subscriptions = state.subscriptions.filter((sub) => sub.symbol !== action.payload);
+        },
     },
 });
 
-export const { addStockData, updateStockData, deleteStockData } = stockSlice.actions;
+export const { updateStockData, addSubscription, removeSubscription } =
+    stockSlice.actions;
 
 export default stockSlice.reducer;
