@@ -22,6 +22,7 @@ interface PriceAlertFormProps {
 interface ClientInterface {
     symbolSearch: (inputValue: string, opts: any, callback: (error: any, data: any, response?: any) => void) => void;
     quote: (symbol: string, callback: (error: any, data: any, response?: any) => void) => void;
+    companyProfile2: (symbol: object, callback: (error: any, data: any, response?: any) => void) => void;
 }
 
 const PriceAlertForm: React.FC<PriceAlertFormProps> = ({ className }) => {
@@ -31,6 +32,7 @@ const PriceAlertForm: React.FC<PriceAlertFormProps> = ({ className }) => {
     const finnhubClient = useRef<ClientInterface>(new finnhub.DefaultApi());
     finnhub.ApiClient.instance.authentications['api_key'].apiKey = 'ctiffk1r01qm6mumuce0ctiffk1r01qm6mumuceg';
     const isFormValid = (values: Record<string, any>) => {
+        if(!values.stock) return { stock: '* This field is required' };
         const validationExist = subscriptions.some((subscription: any) => subscription.symbol === values.stock)
         return validationExist ? { stock: 'Stock already subscribed' } : undefined;
     }
@@ -55,19 +57,23 @@ const PriceAlertForm: React.FC<PriceAlertFormProps> = ({ className }) => {
     const setSubscription = async (values: any, form: any) => {
         finnhubClient.current.quote(values.stock, (error, data) => {
             const currentPrice = data?.c;
-            dispatch(addSubscription({
-                symbol: values.stock,
-                threshold: values.price,
-                price: currentPrice,
-            }));
-            subscribe(values.stock);
-            requestNotificationPermission()
-            form.reset();
+            finnhubClient.current.companyProfile2({ symbol: values.stock }, (profileError, companyProfile) => {
+                const currency = companyProfile?.currency || 'USD';
+                dispatch(addSubscription({
+                    symbol: values.stock,
+                    threshold: values.price,
+                    price: currentPrice,
+                    currency,
+                }));
+                subscribe(values.stock);
+                requestNotificationPermission()
+                form.reset();
+            });
         });
     }
     return (
         <Form onSubmit={setSubscription} className={className} validationFunction={isFormValid}>
-            <Select required name="stock" label="Stock" optionsFields={{ key: 'symbol', label: 'description' }} getFilteredOptions={getFilteredOptions} />
+            <Select name="stock" label="Stock" optionsFields={{ key: 'symbol', label: 'description' }} getFilteredOptions={getFilteredOptions} />
             <NumericInput required name="price" label="Price" className="threshold" />
             <FormSpy subscription={{ valid: true, pristine: true }}>
                 {({ valid, pristine }) => (

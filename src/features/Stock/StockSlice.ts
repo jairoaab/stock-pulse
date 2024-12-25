@@ -8,6 +8,7 @@ export interface StockSubscription {
     change?: number;
     lastUpdated?: string;
     notified?: boolean;
+    currency?: string;
 }
 
 export interface StockStateData {
