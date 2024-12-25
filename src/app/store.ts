@@ -6,7 +6,7 @@ import stockReducer from '../features/Stock/StockSlice';
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['subscriptions'],
+  whitelist: ['subscriptions', 'stocks'],
 };
 
 const persistedReducer = persistReducer(persistConfig, stockReducer);

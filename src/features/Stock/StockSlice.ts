@@ -11,14 +11,23 @@ export interface StockSubscription {
     currency?: string;
 }
 
+export interface Stock {
+    symbol: string;
+    description: string;
+    displaySymbol: string;
+    type: string;
+}
+
 export interface StockStateData {
     subscriptions: StockSubscription[];
+    stocks: Stock[];
     loading: boolean;
     error: string;
 }
 
 const initialState: StockStateData = {
     subscriptions: [],
+    stocks: [],
     loading: false,
     error: '',
 };
@@ -27,6 +36,9 @@ const stockSlice = createSlice({
     name: 'stock',
     initialState,
     reducers: {
+        updateStocks: (state, action: PayloadAction<Stock[]>) => {
+            state.stocks = action.payload;
+        },
         addSubscription: (state, action: PayloadAction<StockSubscription>) => {
             state.subscriptions.push(action.payload);
         },
@@ -43,7 +55,7 @@ const stockSlice = createSlice({
     },
 });
 
-export const { updateStockData, addSubscription, removeSubscription } =
+export const { updateStockData, addSubscription, removeSubscription, updateStocks } =
     stockSlice.actions;
 
 export default stockSlice.reducer;

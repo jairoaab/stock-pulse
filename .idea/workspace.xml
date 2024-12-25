@@ -5,16 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="407ad558-6b68-41d6-8ece-81ea71bf46d5" name="Changes" comment="Stock plotting graph">
-      <change afterPath="$PROJECT_DIR$/src/features/StockPlottingGraph/StockPlottingGraph.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/StockPlottingGraph/consts.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/Dashboard.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/store.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/Dashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Dashboard.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/PriceAlertForm/PriceAlertForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/PriceAlertForm/PriceAlertForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/SideBar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/SideBar.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/Stock/StockSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/Stock/StockSlice.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/StockSubscriptions/StockSubscriptions.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/StockSubscriptions/StockSubscriptions.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/StockSubscriptions/StockSubscriptions.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/StockSubscriptions/StockSubscriptions.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/common/hooks/useGet.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/websocket/WebSocketProvider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/websocket/WebSocketProvider.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +88,7 @@
       <option name="presentableId" value="Default" />
       <updated>1734668679464</updated>
       <workItem from="1734668680794" duration="5375000" />
-      <workItem from="1734744882968" duration="54810000" />
+      <workItem from="1734744882968" duration="66921000" />
     </task>
     <task id="LOCAL-00001" summary="Adding Fetching Stock data">
       <created>1734764169695</created>
@@ -115,7 +118,14 @@
       <option name="project" value="LOCAL" />
       <updated>1735141624613</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Stock plotting graph">
+      <created>1735148181908</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1735148181908</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

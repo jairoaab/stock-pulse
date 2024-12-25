@@ -8,6 +8,7 @@ import useNotification from "../PushNotifications/useNotification";
 interface WebSocketContextProps {
     subscribe: (symbol: string) => void;
     unsubscribe: (symbol: string) => void;
+    isOnline: boolean;
 }
 
 const WebSocketContext = createContext<WebSocketContextProps | null>(null);
@@ -17,9 +18,23 @@ export const WebSocketProvider: React.FC<{ children: React.ReactNode }> = ({ chi
     const dispatch = useDispatch();
     const subscriptions = useSelector((state: RootState) => state.subscriptions);
     const [connected, setConnected] = useState(false);
+    const [isOnline, setIsOnline] = useState(navigator.onLine);
     const [sendNotification] = useNotification()
 
     useEffect(() => {
+        const handleOnline = () => setIsOnline(true);
+        const handleOffline = () => setIsOnline(false);
+
+        window.addEventListener('online', handleOnline);
+        window.addEventListener('offline', handleOffline);
+        return () => {
+            window.removeEventListener('online', handleOnline);
+            window.removeEventListener('offline', handleOffline);
+        };
+    }, []);
+
+    useEffect(() => {
+        if (!isOnline) return;
         const socket = new WebSocket('wss://ws.finnhub.io?token=ctiffk1r01qm6mumuce0ctiffk1r01qm6mumuceg');
         socketRef.current = socket;
 
@@ -74,7 +89,7 @@ export const WebSocketProvider: React.FC<{ children: React.ReactNode }> = ({ chi
                 socketRef.current.close();
             }
         };
-    }, []);
+    }, [isOnline]);
 
     const subscribe = (symbol: string) => {
         if (connected && socketRef.current) {
@@ -89,7 +104,7 @@ export const WebSocketProvider: React.FC<{ children: React.ReactNode }> = ({ chi
     };
 
     return (
-        <WebSocketContext.Provider value={{ subscribe, unsubscribe }}>
+        <WebSocketContext.Provider value={{ subscribe, unsubscribe, isOnline }}>
             {children}
         </WebSocketContext.Provider>
     );

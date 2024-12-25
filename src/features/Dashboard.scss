@@ -1,0 +1,55 @@
+.dashboard {
+  padding: 16px;
+
+  h1 {
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+
+  .dashboard-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    @media screen and (max-width: 768px) {
+      flex-direction: column-reverse;
+      gap: 24px;
+    }
+  }
+
+  .sidebar {
+    flex: 1;
+    max-width: 20%;
+
+    @media screen and (max-width: 768px) {
+      max-width: none;
+      min-width: 100%;
+    }
+  }
+
+  .chart {
+    width: 79vw;
+    flex: 1;
+    min-width: 60%;
+
+    @media screen and (max-width: 768px) {
+      width: 100%;
+      min-width: 100%;
+    }
+  }
+
+  .status-indicator {
+    margin: 0 5px;
+    border-radius: 10px;
+    padding: 5px;
+    display: inline-block;
+
+    &.online {
+      background: green;
+    }
+
+    &.offline {
+      background: red;
+    }
+  }
+}

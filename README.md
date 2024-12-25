@@ -1,46 +1,114 @@
-# Getting Started with Create React App
+# Stock Monitoring PWA
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) TS template.
+A Progressive Web Application (PWA) designed for real-time stock monitoring and price alerts. This app allows users to subscribe to stock symbols, monitor their prices, and receive notifications when thresholds are reached. The app also works offline, ensuring a seamless user experience.
 
-## Available Scripts
+## Key Features
 
-In the project directory, you can run:
+- **Real-Time Updates**: Utilizes WebSocket for real-time stock price updates.
+- **Offline Support**: Service workers cache essential data for offline functionality.
+- **Push Notifications**: Alerts users when stock prices meet predefined conditions.
+- **Responsive Design**: Adapts to various screen sizes, ensuring usability on mobile and desktop devices.
+- **PWA Functionality**: Installable on devices, providing an app-like experience.
 
-### `npm start`
+## Technologies Used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- **Frontend**: React with TypeScript.
+- **State Management**: Redux Toolkit.
+- **Real-Time Communication**: WebSocket.
+- **Offline Support**: Service Workers and LocalStorage.
+- **Styling**: SCSS.
+- **API Integration**: Finnhub API for stock data.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Project Architecture
 
-### `npm test`
+### Components
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. **WebSocketProvider**
+    - Manages the WebSocket connection.
+    - Provides methods to subscribe/unsubscribe to stock symbols.
+    - Handles reconnection and updates Redux state with stock data.
 
-### `npm run build`
+2. **StockSlice (Redux)**
+    - Manages stock subscriptions and their data in the global state.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. **Service Worker**
+    - Caches essential files and handles offline data sync.
+    - Fetches stock prices and currencies when online.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+4. **Push Notifications**
+    - Sends alerts for stock price thresholds.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+5. **UI Components**
+    - **Dashboard**: Displays stock charts and subscription details.
+    - **PriceAlertForm**: Allows users to set price alerts.
+    - **StockSubscriptions**: Displays subscribed stocks and their real-time data.
 
-### `npm run eject`
+### Folder Structure
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```
+src/
+├── features/
+│   ├── Dashboard.tsx
+│   ├── StockPlottingGraph/
+│   ├── websocket/
+│   ├── PushNotifications/
+│   ├── Stock/
+│   ├── PriceAlertForm/
+│   ├── StockSubscriptions/
+│   ├── SideBar.tsx/
+├── app/
+│   ├── store.ts
+├── styles/
+├── serviceWorker.js
+├── manifest.json
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Installation and Setup
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+1. Clone the repository:
+   ```bash
+   git clone git@github.com:jairoaab/stock-pulse.git
+   ```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-## Learn More
+3. Start the development server:
+   ```bash
+   npm start
+   ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+4. Build the project for production:
+   ```bash
+   npm run build
+   ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+5. Deploy the app using a static server with HTTPS to enable PWA features.
+
+## How It Works
+
+1. **WebSocket Connection**: Opens a WebSocket connection to fetch live stock data.
+2. **Service Worker**: Caches static assets and handles background synchronization.
+3. **Redux State Management**: Stores subscriptions and updates real-time stock data.
+4. **LocalStorage**: Persists stock data for offline access.
+5. **Push Notifications**: Notifies users when a stock meets the alert criteria.
+
+## PWA Features
+
+- **Manifest File**: Configures app name, icons, and theme colors for installability.
+- **Service Worker**: Enables offline caching and background sync.
+- **Install Prompt**: Allows users to install the app on their devices.
+
+## Usage
+
+1. Add a stock to monitor by searching for its symbol.
+2. Set a price threshold for alerts.
+3. Monitor real-time stock data on the dashboard.
+4. Receive notifications when thresholds are met.
+
+## License
+
+This project is licensed under the MIT License. See the LICENSE file for details.
+
