@@ -7,6 +7,7 @@ import Button from './Button';
 import {useDispatch, useSelector} from 'react-redux';
 import { addSubscription } from '../Stock/StockSlice';
 import { useStockSubscriptionWebSocket } from '../websocket/WebSocketProvider';
+import { requestNotificationPermission } from '../PushNotifications/PushNotificationsHelpers';
 const finnhub = require('finnhub');
 
 interface StockOption {
@@ -53,13 +54,14 @@ const PriceAlertForm: React.FC<PriceAlertFormProps> = ({ className }) => {
 
     const setSubscription = async (values: any, form: any) => {
         finnhubClient.current.quote(values.stock, (error, data) => {
-            const currentPrice = data.c;
+            const currentPrice = data?.c;
             dispatch(addSubscription({
                 symbol: values.stock,
                 threshold: values.price,
                 price: currentPrice,
             }));
             subscribe(values.stock);
+            requestNotificationPermission()
             form.reset();
         });
     }

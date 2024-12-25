@@ -1,25 +1,21 @@
-import type { Action, ThunkAction } from "@reduxjs/toolkit"
-import { configureStore } from "@reduxjs/toolkit"
-import { setupListeners } from "@reduxjs/toolkit/query"
-import StockSlice from "../features/Stock/StockSlice"
+import { configureStore } from '@reduxjs/toolkit';
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+import stockReducer from '../features/Stock/StockSlice';
 
-export type RootState = ReturnType<typeof StockSlice>
+const persistConfig = {
+  key: 'root',
+  storage,
+  whitelist: ['subscriptions'],
+};
 
-export const makeStore = (preloadedState?: Partial<RootState>) => {
-  const store = configureStore({
-    reducer: StockSlice,
-  })
-  setupListeners(store.dispatch)
-  return store
-}
+const persistedReducer = persistReducer(persistConfig, stockReducer);
 
-export const store = makeStore()
+export const store = configureStore({
+  reducer: persistedReducer,
+});
 
-export type AppStore = typeof store
-export type AppDispatch = AppStore["dispatch"]
-export type AppThunk<ThunkReturnType = void> = ThunkAction<
-  ThunkReturnType,
-  RootState,
-  unknown,
-  Action
->
+export const persistor = persistStore(store);
+
+export type AppDispatch = typeof store.dispatch;
+export type RootState = ReturnType<typeof store.getState>;

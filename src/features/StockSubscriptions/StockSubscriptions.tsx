@@ -1,9 +1,9 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { removeSubscription } from '../Stock/StockSlice';
+import { removeSubscription, StockSubscription } from '../Stock/StockSlice';
 
 import './StockSubscriptions.scss';
-import {useStockSubscriptionWebSocket} from "../websocket/WebSocketProvider";
+import { useStockSubscriptionWebSocket } from '../websocket/WebSocketProvider';
 
 const StockSubscriptions = () => {
     const subscriptions = useSelector((state: any) => state.subscriptions);
@@ -14,13 +14,15 @@ const StockSubscriptions = () => {
         dispatch(removeSubscription(symbol));
     }
 
+    const getStockClass = (stock: StockSubscription) => (stock.price || 0) > stock.threshold ? 'above-the-price' : 'below-the-price';
+
     return (
         <div className="top-cards-container">
             {subscriptions.map((stock: any) => (
                 <div key={stock.symbol} className="top-card">
                     <h3>{stock.symbol}</h3>
                     <p>Threshold: ${stock.threshold}</p>
-                    <p>Current Price: ${stock.price || 'Fetching...'}</p>
+                    <p className={getStockClass(stock)}>Current Price: {stock.price ? `$${stock.price}` : 'Not Available'}</p>
                     <div className="card-actions">
                         <button
                             className="remove-button"

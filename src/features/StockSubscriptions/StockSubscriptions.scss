@@ -3,6 +3,12 @@
   flex-wrap: wrap;
   gap: 16px;
   margin-top: 16px;
+  .above-the-price {
+    color: #38a169;
+  }
+  .below-the-price {
+    color: #e53e3e;
+  }
 }
 
 .top-card {

@@ -1,7 +1,9 @@
 import React, { createContext, useContext, useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {RootState} from "../../app/store";
-import {updateStockData} from "../Stock/StockSlice";
+import { RootState } from "../../app/store";
+import { updateStockData } from "../Stock/StockSlice";
+import useNotification from "../PushNotifications/useNotification";
+
 
 interface WebSocketContextProps {
     subscribe: (symbol: string) => void;
@@ -15,6 +17,7 @@ export const WebSocketProvider: React.FC<{ children: React.ReactNode }> = ({ chi
     const dispatch = useDispatch();
     const subscriptions = useSelector((state: RootState) => state.subscriptions);
     const [connected, setConnected] = useState(false);
+    const [sendNotification] = useNotification()
 
     useEffect(() => {
         const socket = new WebSocket('wss://ws.finnhub.io?token=ctiffk1r01qm6mumuce0ctiffk1r01qm6mumuceg');
@@ -31,13 +34,26 @@ export const WebSocketProvider: React.FC<{ children: React.ReactNode }> = ({ chi
             const data = JSON.parse(event.data);
             if (data.type === 'trade') {
                 const trades = data.data;
-                trades.forEach((trade: any) => {
+                trades.forEach(async (trade: any) => {
+                    const subscription = subscriptions.find((sub) => sub.symbol === trade.s);
+                    let notified: boolean = !!subscription?.notified;
+                    if (!notified && subscription?.threshold && subscription?.threshold >= trade.p) {
+                        if (Notification.permission === 'granted') {
+                            sendNotification({
+                                title: 'Stock Price Alert',
+                                body: `The price of ${trade.s} has fallen below your set threshold. Current price: $${trade.p}`,
+                            });
+                            notified = true;
+                        }
+                    }
+
                     dispatch(
                         updateStockData({
                             id: trade.s,
                             data: {
                                 price: trade.p,
-                                lastUpdated: new Date(trade.t),
+                                lastUpdated: trade.t,
+                                notified,
                             },
                         })
                     );

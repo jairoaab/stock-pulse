@@ -93,7 +93,7 @@ SelectInput.propTypes = {
     input: PropTypes.object,
     meta: PropTypes.object,
     name: PropTypes.string.isRequired,
-    options: PropTypes.arrayOf(PropTypes.object).isRequired,  // Now options are passed as a prop
+    options: PropTypes.arrayOf(PropTypes.object).isRequired,
     onChange: PropTypes.func,
     placeholder: PropTypes.string,
     multiSelect: PropTypes.bool,

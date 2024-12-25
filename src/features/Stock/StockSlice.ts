@@ -6,7 +6,8 @@ export interface StockSubscription {
     price?: number;
     name?: string;
     change?: number;
-    lastUpdated?: Date;
+    lastUpdated?: string;
+    notified?: boolean;
 }
 
 export interface StockStateData {
